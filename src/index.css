@@ -15,6 +15,39 @@ main {
   padding: 2rem 1.25rem;
 }
 
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1.5rem;
+}
+
+.game-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.game-list li {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1rem;
+}
+
+.game-list h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+.game-list p {
+  margin: 0;
+  color: #5c574e;
+}
+
+.error {
+  color: #9f1239;
+}
+
 code {
   font-family: ui-monospace, Consolas, monospace;
 }
