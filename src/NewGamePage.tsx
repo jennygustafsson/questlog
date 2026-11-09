@@ -20,7 +20,6 @@ export default function NewGamePage() {
       status: input.status,
       notes: input.notes,
       ...(input.rating !== null ? { rating: input.rating } : {}),
-      ...(input.coverUrl ? { coverUrl: input.coverUrl } : {}),
     }
 
     try {

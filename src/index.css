@@ -95,6 +95,40 @@ h1 {
   color: #fff;
 }
 
-.game-form button:disabled {
+.game-form button:disabled,
+.game-actions button:disabled {
   opacity: 0.6;
+}
+
+.form-actions,
+.game-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.game-actions {
+  margin-top: 1.5rem;
+}
+
+.game-actions button,
+.form-actions .secondary {
+  font: inherit;
+  width: fit-content;
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.form-actions .secondary {
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid #d8d4cc;
+}
+
+.game-actions .danger {
+  background: #9f1239;
 }

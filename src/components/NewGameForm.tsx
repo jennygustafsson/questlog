@@ -7,13 +7,15 @@ export type NewGameInput = {
   platform: string
   status: GameStatus
   rating: number | null
-  coverUrl: string
   notes: string
 }
 
 type NewGameFormProps = {
   submitting: boolean
   error: string | null
+  initial?: NewGameInput
+  submitLabel?: string
+  onCancel?: () => void
   onSubmit: (game: NewGameInput) => void
 }
 
@@ -22,6 +24,9 @@ const statuses = Object.keys(statusLabel) as GameStatus[]
 export default function NewGameForm({
   submitting,
   error,
+  initial,
+  submitLabel = 'Spara',
+  onCancel,
   onSubmit,
 }: NewGameFormProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -34,7 +39,6 @@ export default function NewGameForm({
       platform: String(form.get('platform') ?? ''),
       status: String(form.get('status') ?? 'want') as GameStatus,
       rating: rating ? Number(rating) : null,
-      coverUrl: String(form.get('coverUrl') ?? ''),
       notes: String(form.get('notes') ?? ''),
     })
   }
@@ -43,15 +47,25 @@ export default function NewGameForm({
     <form className="game-form" onSubmit={handleSubmit}>
       <label>
         Titel
-        <input name="title" required maxLength={100} />
+        <input
+          name="title"
+          required
+          maxLength={100}
+          defaultValue={initial?.title}
+        />
       </label>
       <label>
         Plattform
-        <input name="platform" required maxLength={40} />
+        <input
+          name="platform"
+          required
+          maxLength={40}
+          defaultValue={initial?.platform}
+        />
       </label>
       <label>
         Status
-        <select name="status" defaultValue="want">
+        <select name="status" defaultValue={initial?.status ?? 'want'}>
           {statuses.map((status) => (
             <option key={status} value={status}>
               {statusLabel[status]}
@@ -61,7 +75,7 @@ export default function NewGameForm({
       </label>
       <label>
         Betyg
-        <select name="rating" defaultValue="">
+        <select name="rating" defaultValue={initial?.rating ?? ''}>
           <option value="">Inget betyg</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -71,17 +85,30 @@ export default function NewGameForm({
         </select>
       </label>
       <label>
-        Omslagsadress
-        <input name="coverUrl" type="url" placeholder="https://" />
-      </label>
-      <label>
         Anteckningar
-        <textarea name="notes" rows={4} maxLength={1000} />
+        <textarea
+          name="notes"
+          rows={4}
+          maxLength={1000}
+          defaultValue={initial?.notes}
+        />
       </label>
       {error && <p className="error">{error}</p>}
-      <button type="submit" disabled={submitting}>
-        {submitting ? 'Sparar…' : 'Spara'}
-      </button>
+      <div className="form-actions">
+        <button type="submit" disabled={submitting}>
+          {submitting ? 'Sparar…' : submitLabel}
+        </button>
+        {onCancel && (
+          <button
+            type="button"
+            className="secondary"
+            onClick={onCancel}
+            disabled={submitting}
+          >
+            Avbryt
+          </button>
+        )}
+      </div>
     </form>
   )
 }
