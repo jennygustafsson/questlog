@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { API_BASE } from './config.ts'
 import GameList from './components/GameList.tsx'
 import type { Game } from './types.ts'
@@ -47,6 +48,9 @@ export default function Home() {
   return (
     <main>
       <h1>Questlog</h1>
+      <p>
+        <Link to="/games/new">Lägg till spel</Link>
+      </p>
       {loading && <p>Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && <GameList games={games} />}

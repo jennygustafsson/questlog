@@ -63,3 +63,38 @@ h1 {
 .error {
   color: #9f1239;
 }
+
+.game-form {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 28rem;
+}
+
+.game-form label {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.game-form input,
+.game-form select,
+.game-form textarea {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #d8d4cc;
+  border-radius: 0.4rem;
+  background: #fff;
+}
+
+.game-form button {
+  font: inherit;
+  width: fit-content;
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.game-form button:disabled {
+  opacity: 0.6;
+}
