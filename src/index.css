@@ -9,6 +9,36 @@ body {
   margin: 0;
 }
 
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.brand {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: inherit;
+}
+
+.site-nav a.active {
+  font-weight: 650;
+  text-decoration: none;
+}
+
 main {
   max-width: 40rem;
   margin: 0 auto;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { API_BASE } from './config.ts'
 import GameFilter from './components/GameFilter.tsx'
 import type { GameFilterValue } from './components/GameFilter.tsx'
@@ -62,15 +61,12 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <h1>Questlog</h1>
-      <p>
-        <Link to="/games/new">Lägg till spel</Link>
-      </p>
+    <>
+      <h1>Spel</h1>
       <GameFilter selected={status} onSelect={selectStatus} />
       {loading && <p>Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && <GameList games={games} />}
-    </main>
+    </>
   )
 }

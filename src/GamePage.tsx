@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { API_BASE } from './config.ts'
 import GameDetails from './components/GameDetails.tsx'
 import NewGameForm from './components/NewGameForm.tsx'
@@ -114,10 +114,7 @@ export default function GamePage() {
   }
 
   return (
-    <main>
-      <p>
-        <Link to="/">Alla spel</Link>
-      </p>
+    <>
       {loading && <p>Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && game && (
@@ -163,6 +160,6 @@ export default function GamePage() {
           )}
         </>
       )}
-    </main>
+    </>
   )
 }

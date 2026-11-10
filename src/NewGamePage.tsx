@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { API_BASE } from './config.ts'
 import NewGameForm from './components/NewGameForm.tsx'
 import type { NewGameInput } from './components/NewGameForm.tsx'
@@ -45,12 +45,9 @@ export default function NewGamePage() {
   }
 
   return (
-    <main>
-      <p>
-        <Link to="/">Alla spel</Link>
-      </p>
+    <>
       <h1>Nytt spel</h1>
       <NewGameForm submitting={submitting} error={error} onSubmit={handleSubmit} />
-    </main>
+    </>
   )
 }
