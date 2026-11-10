@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { API_BASE } from './config.ts'
+import GameFilter from './components/GameFilter.tsx'
+import type { GameFilterValue } from './components/GameFilter.tsx'
 import GameList from './components/GameList.tsx'
 import type { Game } from './types.ts'
 
 export default function Home() {
   const [games, setGames] = useState<Game[]>([])
+  const [status, setStatus] = useState<GameFilterValue>('all')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let ignore = false
+    const url =
+      status === 'all' ? `${API_BASE}/games` : `${API_BASE}/games?status=${status}`
 
     async function loadGames() {
       try {
-        const response = await fetch(`${API_BASE}/games`)
+        const response = await fetch(url)
         if (!response.ok) {
           const body = (await response.json()) as { message?: string }
           if (!ignore) {
@@ -43,7 +48,18 @@ export default function Home() {
     return () => {
       ignore = true
     }
-  }, [])
+  }, [status])
+
+  function selectStatus(next: GameFilterValue) {
+    if (next === status) {
+      return
+    }
+
+    setStatus(next)
+    setGames([])
+    setError(null)
+    setLoading(true)
+  }
 
   return (
     <main>
@@ -51,6 +67,7 @@ export default function Home() {
       <p>
         <Link to="/games/new">Lägg till spel</Link>
       </p>
+      <GameFilter selected={status} onSelect={selectStatus} />
       {loading && <p>Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && <GameList games={games} />}

@@ -8,7 +8,7 @@ type GameListProps = {
 
 export default function GameList({ games }: GameListProps) {
   if (games.length === 0) {
-    return <p>Inga spel än.</p>
+    return <p>Inga spel att visa.</p>
   }
 
   return (
