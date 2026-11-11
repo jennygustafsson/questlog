@@ -8,7 +8,7 @@ type GameListProps = {
 
 export default function GameList({ games }: GameListProps) {
   if (games.length === 0) {
-    return <p>Inga spel att visa.</p>
+    return <p className="notice">Inga spel att visa.</p>
   }
 
   return (
@@ -16,9 +16,15 @@ export default function GameList({ games }: GameListProps) {
       {games.map((game) => (
         <li key={game.id}>
           <Link to={`/games/${game.id}`}>
-            <h2>{game.title}</h2>
-            <p>
-              {game.platform} · {statusLabel[game.status]}
+            {game.coverUrl && (
+              <img src={game.coverUrl} alt="" />
+            )}
+            <span>
+              <h2>{game.title}</h2>
+              <p>{game.platform}</p>
+            </span>
+            <p className="status" data-status={game.status}>
+              {statusLabel[game.status]}
             </p>
           </Link>
         </li>

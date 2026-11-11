@@ -115,7 +115,7 @@ export default function GamePage() {
 
   return (
     <>
-      {loading && <p>Laddar spel…</p>}
+      {loading && <p className="notice">Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && game && (
         <>

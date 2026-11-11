@@ -64,7 +64,7 @@ export default function Home() {
     <>
       <h1>Spel</h1>
       <GameFilter selected={status} onSelect={selectStatus} />
-      {loading && <p>Laddar spel…</p>}
+      {loading && <p className="notice">Laddar spel…</p>}
       {!loading && error && <p className="error">{error}</p>}
       {!loading && !error && <GameList games={games} />}
     </>
