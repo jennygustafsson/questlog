@@ -1,5 +1,7 @@
 # Questlog
 
+Live site: https://questlog-kappa-three.vercel.app
+
 A React app for viewing, adding, editing, and deleting games in a backlog. The games come from the Questlog API. There is no login. Each person has their own handle in the URL, so the games stay separate.
 
 The handle in this project is `jenny`.
