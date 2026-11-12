@@ -48,12 +48,6 @@ textarea:focus-visible {
   padding: 1.4rem 1.5rem 1rem;
 }
 
-.brand-block p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
 .brand {
   color: var(--ink);
   font-family: Georgia, 'Palatino Linotype', serif;
@@ -89,8 +83,7 @@ main {
 }
 
 h1,
-h2,
-.game-list h2 {
+h2 {
   font-family: Georgia, 'Palatino Linotype', serif;
 }
 
@@ -99,12 +92,6 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.03em;
   margin: 0 0 0.35rem;
-}
-
-.lead {
-  margin: 0 0 1.5rem;
-  max-width: 36rem;
-  color: var(--muted);
 }
 
 h2 {
@@ -250,8 +237,7 @@ h2 {
   font-size: 1.05rem;
 }
 
-.notice,
-.lead {
+.notice {
   color: var(--muted);
 }
 
@@ -292,8 +278,7 @@ h2 {
 }
 
 .game-form button,
-.game-actions button,
-.form-actions .secondary {
+.game-actions button {
   font: inherit;
   width: fit-content;
   padding: 0.55rem 1rem;

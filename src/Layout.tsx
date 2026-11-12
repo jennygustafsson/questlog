@@ -5,11 +5,9 @@ export default function Layout() {
     <>
       <header className="site-header">
         <div className="site-header-inner">
-          <div className="brand-block">
-            <NavLink to="/" className="brand" end>
-              Spelbacklog
-            </NavLink>
-          </div>
+          <NavLink to="/" className="brand" end>
+            Spelbacklog
+          </NavLink>
           <nav className="site-nav">
             <NavLink to="/" end>
               Spel
